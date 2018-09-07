@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-CompassApp", "E-CompassApp\E-CompassApp.csproj", "{10125842-1270-4922-81B6-1D020DB89698}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcompassService", "..\TheStores\StoresService\EcompassService.csproj", "{8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceProxy", "..\TheStores\ServiceProxy\ServiceProxy.csproj", "{C5F42E9D-EDC1-44C1-B1E3-1701BEF117F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,14 @@ Global
 		{10125842-1270-4922-81B6-1D020DB89698}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10125842-1270-4922-81B6-1D020DB89698}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10125842-1270-4922-81B6-1D020DB89698}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5F42E9D-EDC1-44C1-B1E3-1701BEF117F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5F42E9D-EDC1-44C1-B1E3-1701BEF117F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5F42E9D-EDC1-44C1-B1E3-1701BEF117F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5F42E9D-EDC1-44C1-B1E3-1701BEF117F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
