@@ -32,7 +32,7 @@ namespace E_CompassApp
         {
             if (txtUsername.Text == "software" && txtPassword.Text == "dev")
             {
-                StartActivity(typeof(MainActivity));
+                StartActivity(typeof(LoginActivity));
 
             }
             else
