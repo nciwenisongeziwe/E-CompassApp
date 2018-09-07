@@ -54,7 +54,10 @@ namespace E_CompassApp
 			public const int oreos1 = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int yogurt = 2130837507;
+			public const int places = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int yogurt = 2130837508;
 			
 			static Drawable()
 			{
