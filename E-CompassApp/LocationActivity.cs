@@ -20,6 +20,7 @@ namespace E_CompassApp
             base.OnCreate(savedInstanceState);
 
             // Create your application here
+            SetContentView(Resource.Layout.Location);
         }
     }
 }
