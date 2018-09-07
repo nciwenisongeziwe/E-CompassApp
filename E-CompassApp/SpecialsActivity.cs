@@ -34,9 +34,6 @@ namespace E_CompassApp
             SetContentView(Resource.Layout.Specials);
 
             listProducts= FindViewById<ListView>(Resource.Id.btnLogin);
-
-
-
             InitializeEcompassServiceClient();
 
 
