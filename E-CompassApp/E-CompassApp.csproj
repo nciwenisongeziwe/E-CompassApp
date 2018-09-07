@@ -107,7 +107,7 @@
     <AndroidResource Include="Resources\drawable\e_compass.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\places.jpg" />
+    <AndroidResource Include="Resources\drawable\map.PNG" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\TheStores\ServiceProxy\ServiceProxy.csproj">
