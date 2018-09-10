@@ -51,9 +51,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ServiceModel">
-      <HintPath>..\..\TheStores\EcompassApp\bin\Debug\System.ServiceModel.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
@@ -111,12 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\map.PNG" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\TheStores\ServiceProxy\ServiceProxy.csproj">
-      <Project>{c5f42e9d-edc1-44c1-b1e3-1701bef117f3}</Project>
-      <Name>ServiceProxy</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
