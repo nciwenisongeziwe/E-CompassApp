@@ -11,9 +11,8 @@ using Android.Views;
 using Android.Widget;
 
 using System.ServiceModel;
-using ServiceProxy.EcompassServiceProxy;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
+//using ServiceProxy.EcompassServiceProxy;
+using System.Threading;
 
 namespace E_CompassApp
 {
@@ -21,10 +20,14 @@ namespace E_CompassApp
     public class SpecialsActivity : Activity
     {
 
-        static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:8733/Design_Time_Addresses/StoresService/EcompassService/");
+        //static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:8733/Design_Time_Addresses/StoresService/EcompassService/");
 
-        EcompassServiceClient _client;
+        //EcompassServiceClient _client;
         private ListView listProducts;
+        private TextView txtSpecials;
+       // List<PnpProducts> pnpProducts;
+        private string str;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,34 +37,70 @@ namespace E_CompassApp
             SetContentView(Resource.Layout.Specials);
 
             listProducts= FindViewById<ListView>(Resource.Id.btnLogin);
+            txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
+
             InitializeEcompassServiceClient();
 
+            //ListSpecials();
 
 
         }
+
+        //private void ListSpecials()
+        //{
+        //    txtSpecials.Text= "Waiting for WCF...";
+        //    try
+        //    {
+        //        new Thread(() =>
+        //        {
+        //            using (_client)
+        //            {
+        //                buildStr();
+        //            }
+        //        }).Start();
+
+        //        txtSpecials.Text = "SPECIALS";
+        //        txtSpecials.Text = str;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //}
+
+
+        //public async void buildStr()
+        //{
+
+        //    str = await _client.SayHelloToAsync();
+        //    //data = await _client.SayHelloTo(); ///  <-- after this step it jumps out of method
+        //    //for (int i = 0; i < data.Length; i++)
+        //    //    str += data[i].ToString();
+        //}
 
         void InitializeEcompassServiceClient()
         {
-            BasicHttpBinding binding = CreateBasicHttpBinding();
-            _client = new EcompassServiceClient(binding, Endpoint);
+           // BasicHttpBinding binding = CreateBasicHttpBinding();
+           // _client = new EcompassServiceClient(binding, Endpoint);
         }
 
 
-        static BasicHttpBinding CreateBasicHttpBinding()
-        {
-            BasicHttpBinding binding = new BasicHttpBinding
-            {
-                Name = "basicHttpBinding",
-                MaxBufferSize = 2147483647,
-                MaxReceivedMessageSize = 2147483647
-            };
+        //static BasicHttpBinding CreateBasicHttpBinding()
+        //{
+        //    BasicHttpBinding binding = new BasicHttpBinding
+        //    {
+        //        Name = "basicHttpBinding",
+        //        MaxBufferSize = 2147483647,
+        //        MaxReceivedMessageSize = 2147483647
+        //    };
 
-            TimeSpan timeout = new TimeSpan(0, 0, 30);
-            binding.SendTimeout = timeout;
-            binding.OpenTimeout = timeout;
-            binding.ReceiveTimeout = timeout;
-            return binding;
-        }
+        //    TimeSpan timeout = new TimeSpan(0, 0, 30);
+        //    binding.SendTimeout = timeout;
+        //    binding.OpenTimeout = timeout;
+        //    binding.ReceiveTimeout = timeout;
+        //    return binding;
+        //}
+
 
 
 
