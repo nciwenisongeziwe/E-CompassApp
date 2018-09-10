@@ -14,6 +14,8 @@ using System.ServiceModel;
 using ServiceProxy.EcompassServiceProxy;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Threading;
+using System.ServiceModel.Channels;
 
 namespace E_CompassApp
 {
@@ -25,6 +27,10 @@ namespace E_CompassApp
 
         EcompassServiceClient _client;
         private ListView listProducts;
+        private TextView txtSpecials;
+       // List<PnpProducts> pnpProducts;
+        private string str;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,10 +40,45 @@ namespace E_CompassApp
             SetContentView(Resource.Layout.Specials);
 
             listProducts= FindViewById<ListView>(Resource.Id.btnLogin);
+            txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
+
             InitializeEcompassServiceClient();
 
+            ListSpecials();
 
 
+        }
+
+        private void ListSpecials()
+        {
+            txtSpecials.Text= "Waiting for WCF...";
+            try
+            {
+                new Thread(() =>
+                {
+                    using (_client)
+                    {
+                        buildStr();
+                    }
+                }).Start();
+
+                txtSpecials.Text = "SPECIALS";
+                txtSpecials.Text = str;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+
+        public async void buildStr()
+        {
+
+            str = await _client.SayHelloToAsync();
+            //data = await _client.SayHelloTo(); ///  <-- after this step it jumps out of method
+            //for (int i = 0; i < data.Length; i++)
+            //    str += data[i].ToString();
         }
 
         void InitializeEcompassServiceClient()
@@ -62,6 +103,7 @@ namespace E_CompassApp
             binding.ReceiveTimeout = timeout;
             return binding;
         }
+
 
 
 
