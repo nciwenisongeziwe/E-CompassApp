@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/linearLayout2">
+    android:id="@+id/linearLayout2"
+    android:background="@drawable/shape">
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
@@ -24,8 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnLocation"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
     <Button
@@ -33,8 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnSpecials"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 </LinearLayout>
