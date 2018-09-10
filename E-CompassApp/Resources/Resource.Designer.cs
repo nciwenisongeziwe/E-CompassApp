@@ -51,25 +51,13 @@ namespace E_CompassApp
 			public const int Fries = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int images = 2130837506;
+			public const int map = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int map = 2130837507;
+			public const int oreos1 = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int oreos1 = 2130837508;
-			
-			// aapt resource value: 0x7f020005
-			public const int sale = 2130837509;
-			
-			// aapt resource value: 0x7f020006
-			public const int shape = 2130837510;
-			
-			// aapt resource value: 0x7f020007
-			public const int tovary = 2130837511;
-			
-			// aapt resource value: 0x7f020008
-			public const int yogurt = 2130837512;
+			public const int yogurt = 2130837508;
 			
 			static Drawable()
 			{
@@ -105,8 +93,8 @@ namespace E_CompassApp
 			// aapt resource value: 0x7f050002
 			public const int imageView1 = 2131034114;
 			
-			// aapt resource value: 0x7f05000c
-			public const int imageView2 = 2131034124;
+			// aapt resource value: 0x7f05000d
+			public const int imageView2 = 2131034125;
 			
 			// aapt resource value: 0x7f050001
 			public const int linearLayout1 = 2131034113;
@@ -114,17 +102,20 @@ namespace E_CompassApp
 			// aapt resource value: 0x7f050000
 			public const int linearLayout2 = 2131034112;
 			
-			// aapt resource value: 0x7f05000e
-			public const int listProductSpecials = 2131034126;
+			// aapt resource value: 0x7f05000f
+			public const int listProductSpecials = 2131034127;
 			
-			// aapt resource value: 0x7f05000d
-			public const int myImageViewText = 2131034125;
+			// aapt resource value: 0x7f05000e
+			public const int myImageViewText = 2131034126;
 			
 			// aapt resource value: 0x7f050008
 			public const int textView1 = 2131034120;
 			
 			// aapt resource value: 0x7f050006
 			public const int txtPassword = 2131034118;
+			
+			// aapt resource value: 0x7f05000c
+			public const int txtSpecials = 2131034124;
 			
 			// aapt resource value: 0x7f050005
 			public const int txtUsername = 2131034117;
