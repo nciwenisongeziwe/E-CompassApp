@@ -12,10 +12,7 @@ using Android.Widget;
 
 using System.ServiceModel;
 using ServiceProxy.EcompassServiceProxy;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
 using System.Threading;
-using System.ServiceModel.Channels;
 
 namespace E_CompassApp
 {
