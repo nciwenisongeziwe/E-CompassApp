@@ -45,37 +45,28 @@ namespace E_CompassApp
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int ass = 2130837504;
+			public const int e_compass = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int com = 2130837505;
+			public const int Fries = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int e_compass = 2130837506;
+			public const int images = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int eeh = 2130837507;
+			public const int map = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int Fries = 2130837508;
+			public const int oreos1 = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int hey = 2130837509;
+			public const int sale = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int love = 2130837510;
+			public const int tovary = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int map = 2130837511;
-			
-			// aapt resource value: 0x7f020008
-			public const int oreos1 = 2130837512;
-			
-			// aapt resource value: 0x7f020009
-			public const int spring = 2130837513;
-			
-			// aapt resource value: 0x7f02000a
-			public const int yogurt = 2130837514;
+			public const int yogurt = 2130837511;
 			
 			static Drawable()
 			{
@@ -119,6 +110,9 @@ namespace E_CompassApp
 			
 			// aapt resource value: 0x7f050000
 			public const int linearLayout2 = 2131034112;
+			
+			// aapt resource value: 0x7f05000e
+			public const int listProductSpecials = 2131034126;
 			
 			// aapt resource value: 0x7f05000d
 			public const int myImageViewText = 2131034125;
