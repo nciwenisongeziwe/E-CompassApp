@@ -5,7 +5,7 @@ using System;
 
 namespace E_CompassApp
 {
-    [Activity(Label = "E_CompassApp", MainLauncher = true)]
+    [Activity(Label = "E_CompassApp", Icon = "@drawable/icon", MainLauncher = true)]
     public class MainActivity : Activity
     {
         private Button btnLogin;
