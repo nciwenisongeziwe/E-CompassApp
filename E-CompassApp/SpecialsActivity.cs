@@ -26,7 +26,7 @@ namespace E_CompassApp
         private ListView listProducts;
         private TextView txtSpecials;
        // List<PnpProducts> pnpProducts;
-        private string str;
+        //private string str;
         
 
         protected override void OnCreate(Bundle savedInstanceState)
