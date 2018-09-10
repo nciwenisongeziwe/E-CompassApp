@@ -109,6 +109,24 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\map.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TheStores\ServiceProxy\ServiceProxy.csproj">
+      <Project>{c5f42e9d-edc1-44c1-b1e3-1701bef117f3}</Project>
+      <Name>ServiceProxy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\tovary.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sale.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\shape.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 		Other similar extension points exist, see Microsoft.Common.targets.
