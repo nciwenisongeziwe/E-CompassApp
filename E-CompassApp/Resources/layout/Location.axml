@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="@drawable/shape-26">
+    android:background="@drawable/shape">
     <ImageView
         android:src="@drawable/map"
         android:layout_width="match_parent"
