@@ -48,19 +48,22 @@ namespace E_CompassApp
 			public const int e_compass = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int Fries = 2130837505;
+			public const int e_compassz = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int map = 2130837506;
+			public const int Fries = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int oreos1 = 2130837507;
+			public const int map = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int shape = 2130837508;
+			public const int oreos1 = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int yogurt = 2130837509;
+			public const int shape = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int yogurt = 2130837510;
 			
 			static Drawable()
 			{
