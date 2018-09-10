@@ -51,10 +51,10 @@ namespace E_CompassApp
 			public const int Fries = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int oreos1 = 2130837506;
+			public const int map = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int places = 2130837507;
+			public const int oreos1 = 2130837507;
 			
 			// aapt resource value: 0x7f020004
 			public const int yogurt = 2130837508;
