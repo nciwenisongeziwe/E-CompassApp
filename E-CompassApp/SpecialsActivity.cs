@@ -12,6 +12,7 @@ using Android.Widget;
 
 using System.ServiceModel;
 //using ServiceProxy.EcompassServiceProxy;
+//using StoresService;
 using System.Threading;
 
 namespace E_CompassApp
@@ -19,15 +20,15 @@ namespace E_CompassApp
     [Activity(Label = "SpecialsActivity")]
     public class SpecialsActivity : Activity
     {
-
-        //static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:8733/Design_Time_Addresses/StoresService/EcompassService/");
-
+        //private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:8733/Design_Time_Addresses/StoresService/EcompassService/");
+        //EcompassService ecompassService = new EcompassService();
         //EcompassServiceClient _client;
-        private ListView listProducts;
-        private TextView txtSpecials;
+        //private ListView listProducts;
+        //private TextView txtSpecials;
        // List<PnpProducts> pnpProducts;
-        private string str;
-        
+       //private string str;
+
+        //public EcompassService EcompassService { get => ecompassService; set => ecompassService = value; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,10 +37,10 @@ namespace E_CompassApp
             // Create your application here
             SetContentView(Resource.Layout.Specials);
 
-            listProducts= FindViewById<ListView>(Resource.Id.btnLogin);
-            txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
+            //listProducts= FindViewById<ListView>(Resource.Id.btnLogin);
+            //txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
 
-            InitializeEcompassServiceClient();
+            //InitializeEcompassServiceClient();
 
             //ListSpecials();
 
@@ -48,15 +49,14 @@ namespace E_CompassApp
 
         //private void ListSpecials()
         //{
-        //    txtSpecials.Text= "Waiting for WCF...";
+        //    txtSpecials.Text = "Waiting for WCF...";
         //    try
         //    {
         //        new Thread(() =>
         //        {
-        //            using (_client)
-        //            {
+
         //                buildStr();
-        //            }
+                    
         //        }).Start();
 
         //        txtSpecials.Text = "SPECIALS";
@@ -72,17 +72,17 @@ namespace E_CompassApp
         //public async void buildStr()
         //{
 
-        //    str = await _client.SayHelloToAsync();
+        //    //str = ecompassService.SayHelloTo();
         //    //data = await _client.SayHelloTo(); ///  <-- after this step it jumps out of method
         //    //for (int i = 0; i < data.Length; i++)
         //    //    str += data[i].ToString();
         //}
 
-        void InitializeEcompassServiceClient()
-        {
-           // BasicHttpBinding binding = CreateBasicHttpBinding();
-           // _client = new EcompassServiceClient(binding, Endpoint);
-        }
+        //void InitializeEcompassServiceClient()
+        //{
+        //    BasicHttpBinding binding = CreateBasicHttpBinding();
+        //    _client = new EcompassServiceClient(binding, Endpoint);
+        //}
 
 
         //static BasicHttpBinding CreateBasicHttpBinding()
@@ -117,7 +117,7 @@ namespace E_CompassApp
         //    IObservable<PnpProducts> result;
         //    try
         //    {
-                
+
         //        //listProducts. = await _client.GetProductsDataAsync();
         //        //listProducts = result;
         //    }
@@ -127,7 +127,7 @@ namespace E_CompassApp
         //    }
         //}
 
-       
+
         //async void SayHelloWorldButtonOnClick(object sender, EventArgs e)
         //{
         //    _sayHelloWorldTextView.Text = "Waiting for WCF...";
