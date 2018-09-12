@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcompassService", "..\TheStores\StoresService\EcompassService.csproj", "{8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceProxy", "..\TheStores\ServiceProxy\ServiceProxy.csproj", "{C5F42E9D-EDC1-44C1-B1E3-1701BEF117F3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2} = {8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
