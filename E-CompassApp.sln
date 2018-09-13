@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-CompassApp", "E-CompassApp\E-CompassApp.csproj", "{10125842-1270-4922-81B6-1D020DB89698}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2} = {8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcompassService", "..\TheStores\StoresService\EcompassService.csproj", "{8DC3FB25-9657-4D75-A37D-9A82B9A8D8C2}"
 EndProject
