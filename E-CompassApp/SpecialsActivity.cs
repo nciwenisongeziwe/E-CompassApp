@@ -69,7 +69,7 @@ namespace E_CompassApp
         {
 
             //str = ecompassService.SayHelloTo();
-            str = await _client.SayHelloToAsync(); ///  <-- after this step it jumps out of method
+            //str = await _client.SayHelloToAsync(); ///  <-- after this step it jumps out of method
             //for (int i = 0; i < data.Length; i++)
             //    str += data[i].ToString();
         }
