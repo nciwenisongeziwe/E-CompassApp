@@ -11,16 +11,16 @@ using Android.Views;
 using Android.Widget;
 
 using System.ServiceModel;
-using ServiceProxy.EcompassServiceProxy;
 
 using System.Threading;
+using ServiceReference1;
 
 namespace E_CompassApp
 {
     [Activity(Label = "SpecialsActivity")]
     public class SpecialsActivity : Activity
     {
-        private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:8733/Design_Time_Addresses/StoresService/EcompassService/");
+        private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
         private EcompassServiceClient _client;
         private ListView listProducts;
         private TextView txtSpecials;
@@ -69,7 +69,7 @@ namespace E_CompassApp
         {
 
             //str = ecompassService.SayHelloTo();
-            str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
+             str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
             //for (int i = 0; i < data.Length; i++)
             //    str += data[i].ToString();
         }
