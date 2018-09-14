@@ -111,9 +111,6 @@ namespace E_CompassApp
 			// aapt resource value: 0x7f050000
 			public const int linearLayout2 = 2131034112;
 			
-			// aapt resource value: 0x7f05000f
-			public const int listProductSpecials = 2131034127;
-			
 			// aapt resource value: 0x7f05000e
 			public const int myImageViewText = 2131034126;
 			

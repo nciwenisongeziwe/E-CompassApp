@@ -34,7 +34,8 @@ namespace E_CompassApp
             // Create your application here
             SetContentView(Resource.Layout.Specials);
 
-            listProducts = FindViewById<ListView>(Resource.Id.btnLogin);
+
+
             txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
 
             InitializeEcompassServiceClient();
