@@ -11,7 +11,6 @@ using Android.Views;
 using Android.Widget;
 
 using System.ServiceModel;
-
 using System.Threading;
 using ServiceReference1;
 
@@ -22,9 +21,7 @@ namespace E_CompassApp
     {
         private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
         private EcompassServiceClient _client;
-        private ListView listProducts;
         private TextView txtSpecials;
-        //List<PnpProducts> pnpProducts;
         private string str;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -32,32 +29,25 @@ namespace E_CompassApp
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.Specials);
-
-
+            SetContentView(Resource.Layout.Location);
 
             txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
-
             InitializeEcompassServiceClient();
             ListSpecials();
-
-
         }
 
         private void ListSpecials()
         {
-            txtSpecials.Text = "Waiting for WCF...";
+            //txtSpecials.Text = "Waiting for WCF...";
             try
             {
                 new Thread(() =>
                 {
-
                     buildStr();
-
                 }).Start();
 
-                txtSpecials.Text = "SPECIALS";
-                txtSpecials.Text = str;
+                //txtSpecials.Text = "SPECIALS";
+                //txtSpecials.Text = str;
             }
             catch (Exception ex)
             {
@@ -68,11 +58,9 @@ namespace E_CompassApp
 
         public async void buildStr()
         {
-
             //str = ecompassService.SayHelloTo();
              str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
-            //for (int i = 0; i < data.Length; i++)
-            //    str += data[i].ToString();
+
         }
 
         void InitializeEcompassServiceClient()
