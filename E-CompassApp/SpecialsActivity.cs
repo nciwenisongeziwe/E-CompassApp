@@ -12,6 +12,7 @@ using Android.Widget;
 using System.ServiceModel;
 using System.Threading;
 using ServiceReference1;
+using System.Threading.Tasks;
 
 namespace E_CompassApp
 {
@@ -26,27 +27,26 @@ namespace E_CompassApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
-            SetContentView(Resource.Layout.Location);
+            SetContentView(Resource.Layout.Specials);
 
             txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
             InitializeEcompassServiceClient();
             ListSpecials();
         }
 
-        private void ListSpecials()
+        private async void ListSpecials()
         {
-            //txtSpecials.Text = "Waiting for WCF...";
+            txtSpecials.Text = "Waiting for WCF...";
             try
             {
-                new Thread(() =>
+                new Thread(async () =>
                 {
-                    buildStr();
+                    await buildStr();
                 }).Start();
 
-                //txtSpecials.Text = "SPECIALS";
-                //txtSpecials.Text = str;
+                txtSpecials.Text = "SPECIALS";
+                txtSpecials.Text = str;
             }
             catch (Exception ex)
             {
@@ -55,7 +55,7 @@ namespace E_CompassApp
         }
 
 
-        public async void buildStr()
+        public async Task buildStr()
         {
             //str = ecompassService.SayHelloTo();
              str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
