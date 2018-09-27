@@ -9,9 +9,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-
 using System.ServiceModel;
 using System.Threading;
+
+
+using System.Threading.Tasks;
 using ServiceReference1;
 
 namespace E_CompassApp
@@ -21,70 +23,69 @@ namespace E_CompassApp
     {
         private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
         private EcompassServiceClient _client;
-        private TextView txtSpecials;
-        private string str;
+        //private TextView txtSpecials;
+        //private string str;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             // Create your application here
-            SetContentView(Resource.Layout.Location);
+            SetContentView(Resource.Layout.Specials);
 
-            txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
-            InitializeEcompassServiceClient();
-            ListSpecials();
+           // txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
+     //       InitializeEcompassServiceClient();
+            //ListSpecials();
         }
 
-        private void ListSpecials()
-        {
-            //txtSpecials.Text = "Waiting for WCF...";
-            try
-            {
-                new Thread(() =>
-                {
-                    buildStr();
-                }).Start();
+        //private void ListSpecials()
+        //{
+        //    txtSpecials.Text = "Waiting for WCF...";
+        //    try
+        //    {
+        //        new Thread(async () =>
+        //        {
+        //            await BuildStr();
+        //        }).Start();
 
-                //txtSpecials.Text = "SPECIALS";
-                //txtSpecials.Text = str;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-
-
-        public async void buildStr()
-        {
-            //str = ecompassService.SayHelloTo();
-             str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
-
-        }
-
-        void InitializeEcompassServiceClient()
-        {
-            BasicHttpBinding binding = CreateBasicHttpBinding();
-            _client = new EcompassServiceClient(binding, Endpoint);
-        }
+        //        txtSpecials.Text = "SPECIALS";
+        //        txtSpecials.Text = str;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //}
 
 
-        static BasicHttpBinding CreateBasicHttpBinding()
-        {
-            BasicHttpBinding binding = new BasicHttpBinding
-            {
-                Name = "basicHttpBinding",
-                MaxBufferSize = 2147483647,
-                MaxReceivedMessageSize = 2147483647
-            };
+        //async Task BuildStr()
+        //{
+        //    //str = ecompassService.SayHelloTo();
+        //     str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
 
-            TimeSpan timeout = new TimeSpan(0, 0, 30);
-            binding.SendTimeout = timeout;
-            binding.OpenTimeout = timeout;
-            binding.ReceiveTimeout = timeout;
-            return binding;
-        }
+        //}
+
+        //void InitializeEcompassServiceClient()
+        //{
+        //    BasicHttpBinding binding = CreateBasicHttpBinding();
+        //    _client = new EcompassServiceClient(binding, Endpoint);
+        //}
+
+
+        //static BasicHttpBinding CreateBasicHttpBinding()
+        //{
+        //    BasicHttpBinding binding = new BasicHttpBinding
+        //    {
+        //        Name = "basicHttpBinding",
+        //        MaxBufferSize = 2147483647,
+        //        MaxReceivedMessageSize = 2147483647
+        //    };
+
+        //    TimeSpan timeout = new TimeSpan(0, 0, 30);
+        //    binding.SendTimeout = timeout;
+        //    binding.OpenTimeout = timeout;
+        //    binding.ReceiveTimeout = timeout;
+        //    return binding;
+        //}
 
 
 

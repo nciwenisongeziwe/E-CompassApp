@@ -12,7 +12,6 @@ namespace E_CompassApp
     public class MainActivity : Activity
     {
         private Button btnLogin;
-
         private EditText txtUsername;
         private EditText txtPassword;
 
@@ -33,13 +32,13 @@ namespace E_CompassApp
             txtUsername = FindViewById<EditText>(Resource.Id.txtUsername);
             txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
 
-            btnLogin.Click += btnLogin_Click;
+            btnLogin.Click += BtnLogin_Click;
 
             CreateNotificationChannel();
 
         }
 
-        private void btnLogin_Click(object sender,System. EventArgs e)
+        private void BtnLogin_Click(object sender,System. EventArgs e)
         {
             if (txtUsername.Text == "software" && txtPassword.Text == "dev")
             {
