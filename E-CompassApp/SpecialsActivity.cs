@@ -19,7 +19,7 @@ using ServiceReference1;
 namespace E_CompassApp
 {
     [Activity(Label = "SpecialsActivity")]
-    public class SpecialsActivity : Activity
+    public class SpecialsActivity : Android.Support.V7.App.AppCompatActivity//Activity
     {
         private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
         private EcompassServiceClient _client;

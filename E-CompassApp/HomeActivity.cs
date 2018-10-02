@@ -28,20 +28,19 @@ namespace E_CompassApp
             btnSpecials = FindViewById<Button>(Resource.Id.btnSpecials);
             btnLocation = FindViewById<Button>(Resource.Id.btnLocation);
 
-
-            btnSpecials.Click += btnSpecials_Click;
-            btnLocation.Click += btnLocation_Click;
+            btnSpecials.Click += BtnSpecials_Click;
+            btnLocation.Click += BtnLocation_Click;
 
         }
 
 
-        private void btnSpecials_Click(object sender, System.EventArgs e)
+        private void BtnSpecials_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(SpecialsActivity));
         }
 
 
-        private void btnLocation_Click(object sender, System.EventArgs e)
+        private void BtnLocation_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(LocationActivity));
         }

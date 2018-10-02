@@ -49,6 +49,7 @@ namespace E_CompassApp
             {
                 Toast.MakeText(this, "Username or password is incorrect", ToastLength.Long).Show();
             }
+
             var valuesForActivity = new Bundle();
             valuesForActivity.PutInt(COUNT_KEY, count);
 
