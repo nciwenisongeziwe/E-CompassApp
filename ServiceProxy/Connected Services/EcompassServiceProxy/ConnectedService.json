@@ -6,7 +6,7 @@
   },
   "ExtendedData": {
     "Uri": "http://localhost:50874/EcompassService.svc",
-    "Namespace": "ServiceReference1",
+    "Namespace": "EcompassServiceProxy",
     "SelectedAccessLevelForGeneratedClass": "Public",
     "GenerateMessageContract": false,
     "ReuseTypesinReferencedAssemblies": true,
@@ -21,7 +21,7 @@
     },
     "CheckedReferencedAssemblies": [],
     "InstanceId": null,
-    "Name": "ServiceReference1",
+    "Name": "EcompassServiceProxy",
     "Metadata": {}
   }
 }

@@ -7,18 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServiceReference1
+namespace EcompassServiceProxy
 {
+    using System;
     using System.Runtime.Serialization;
-    
-    
+    using System.Threading.Tasks;
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PnpProducts", Namespace="http://schemas.datacontract.org/2004/07/EcompassService")]
     public partial class PnpProducts : object
     {
         
-        private ServiceReference1.ProductCatagory CatagoryField;
+        private EcompassServiceProxy.ProductCatagory CatagoryField;
         
         private System.DateTime ProductDateEndPromoField;
         
@@ -35,7 +36,7 @@ namespace ServiceReference1
         private float ProductPriceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ServiceReference1.ProductCatagory Catagory
+        public EcompassServiceProxy.ProductCatagory Catagory
         {
             get
             {
@@ -192,7 +193,7 @@ namespace ServiceReference1
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IEcompassService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EcompassServiceProxy.IEcompassService")]
     public interface IEcompassService
     {
         
@@ -200,17 +201,17 @@ namespace ServiceReference1
         System.Threading.Tasks.Task<string> SayHelloToAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEcompassService/GetProductsData", ReplyAction="http://tempuri.org/IEcompassService/GetProductsDataResponse")]
-        System.Threading.Tasks.Task<ServiceReference1.PnpProducts[]> GetProductsDataAsync();
+        System.Threading.Tasks.Task<EcompassServiceProxy.PnpProducts[]> GetProductsDataAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    public interface IEcompassServiceChannel : ServiceReference1.IEcompassService, System.ServiceModel.IClientChannel
+    public interface IEcompassServiceChannel : EcompassServiceProxy.IEcompassService, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    public partial class EcompassServiceClient : System.ServiceModel.ClientBase<ServiceReference1.IEcompassService>, ServiceReference1.IEcompassService
+    public partial class EcompassServiceClient : System.ServiceModel.ClientBase<EcompassServiceProxy.IEcompassService>, EcompassServiceProxy.IEcompassService
     {
         
     /// <summary>
@@ -258,7 +259,7 @@ namespace ServiceReference1
             return base.Channel.SayHelloToAsync();
         }
         
-        public System.Threading.Tasks.Task<ServiceReference1.PnpProducts[]> GetProductsDataAsync()
+        public System.Threading.Tasks.Task<EcompassServiceProxy.PnpProducts[]> GetProductsDataAsync()
         {
             return base.Channel.GetProductsDataAsync();
         }
@@ -305,7 +306,12 @@ namespace ServiceReference1
         {
             return EcompassServiceClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IEcompassService);
         }
-        
+
+        public Task SayHelloToAsync(string v)
+        {
+            throw new NotImplementedException();
+        }
+
         public enum EndpointConfiguration
         {
             
