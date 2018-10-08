@@ -36,7 +36,7 @@ namespace E_CompassApp
 
         private void BtnSpecials_Click(object sender, System.EventArgs e)
         {
-            StartActivity(typeof(FakeActivity));
+            StartActivity(typeof(SpecialsActivity));
         }
 
 
