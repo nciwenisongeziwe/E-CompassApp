@@ -24,7 +24,7 @@ namespace E_CompassApp
             // Create your application here
             try
             {
-                SetContentView(Resource.Layout.FakeSpecials);
+                SetContentView(Resource.Layout.Specials);
                 //SetContentView(Resource.Layout.Specials);
                 //txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
 
