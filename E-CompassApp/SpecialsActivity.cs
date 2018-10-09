@@ -11,9 +11,10 @@ using Android.Support.V7.App;
 namespace E_CompassApp
 {
     [Activity(Label = "SpecialsActivity")]
-    public class SpecialsActivity : AppCompatActivity// Activity Android.Support.V7.App.AppCompatActivity
+    public class SpecialsActivity : Activity// Activity Android.Support.V7.App.AppCompatActivity
     {
-        private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
+        private static readonly EndpointAddress Endpoint =
+            new EndpointAddress("http://localhost:50874/EcompassService.svc");
         private EcompassServiceClient _client;
         private TextView txtSpecials;
        // private string str;
@@ -26,7 +27,9 @@ namespace E_CompassApp
             {
                 SetContentView(Resource.Layout.Specials);
                 //SetContentView(Resource.Layout.Specials);
-                //txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
+                txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
+
+                InitializeEcompassServiceClient();
 
             }
             catch (Exception ex)
@@ -37,7 +40,6 @@ namespace E_CompassApp
             }
             
            
-            InitializeEcompassServiceClient();
             //ListSpecials();
         }
 

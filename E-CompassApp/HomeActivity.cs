@@ -43,6 +43,20 @@ namespace E_CompassApp
         private void BtnLocation_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(LocationActivity));
+
+            //try
+            //{
+            //    // Launch Waze to look for Hawaii:
+            //    String url = "https://waze.com/ul?q=Hawaii";
+            //    Intent intent = new Intent(Intent.ActionView, Uri.TryCreate(url, UriKind.Relative,Uri.UriSchemeHttp()));
+            //    StartActivity(intent);
+            //}
+            //catch (ActivityNotFoundException ex)
+            //{
+            //    // If Waze is not installed, open it in Google Play:
+            //    Intent intent = new Intent(Intent.ActionView, Uri.parse("market://details?id=com.waze"));
+            //    StartActivity(intent);
+            //}
         }
     }
 }
