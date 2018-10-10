@@ -59,6 +59,8 @@ namespace E_CompassApp
         {
             //throw new NotImplementedException();
             googleMap.MapType = GoogleMap.MapTypeNormal;
+            googleMap.UiSettings.ZoomControlsEnabled = true;
+            googleMap.UiSettings.CompassEnabled = true;
         }
 
 
