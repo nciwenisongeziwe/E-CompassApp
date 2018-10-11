@@ -22,7 +22,7 @@ namespace E_CompassApp
         private TextView txtSpecials;
         private string str;
         private ListView listSpecials;
-        public PnpProducts[] products { get; set; }
+        public PnpProducts[] Products { get; set; }
 
         public ArrayAdapter<string> ListAdapter { get; private set; }
         public string [] items;
@@ -39,7 +39,7 @@ namespace E_CompassApp
                 InitializeEcompassServiceClient();
 
                 ListSpecials();
-                ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, products.Length);
+                //ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, products.Length);
 
 
             }
@@ -77,7 +77,7 @@ namespace E_CompassApp
         {
             //str = ecompassService.SayHelloTo();
             str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
-            products = await _client.GetProductsDataAsync();
+            Products = await _client.GetProductsDataAsync();
 
         }
 

@@ -20,7 +20,7 @@ namespace E_CompassApp
     public class LocationActivity : Activity, IOnMapReadyCallback
     {
         //private bool isRequestingLocationUpdates;
-        private TextView txtMessage;
+      //  private TextView txtMessage;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
