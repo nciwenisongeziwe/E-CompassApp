@@ -45,9 +45,9 @@ namespace E_CompassApp
             }
             catch (Exception ex)
             {
-
-                txtMessage=FindViewById<TextView>(Resource.Id.txtMessage);
-                txtMessage.Text= ex.Message;
+                Console.WriteLine(ex.Message);
+                //txtMessage=FindViewById<TextView>(Resource.Id.txtMessage);
+                //txtMessage.Text= ex.Message;
             }
            
 

@@ -17,7 +17,7 @@ namespace EcompassService
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public EcompassContext() : base("name=Context")
+        public EcompassContext() : base("name=PNPContext")
         {
         }
 

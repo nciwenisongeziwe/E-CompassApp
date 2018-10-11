@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using Android.Widget;
 using Android.Support.V7.App;
+using System.Threading;
+using System.Threading.Tasks;
+using static Android.Content.ClipData;
 
 namespace E_CompassApp
 {
@@ -17,8 +20,12 @@ namespace E_CompassApp
             new EndpointAddress("http://localhost:50874/EcompassService.svc");
         private EcompassServiceClient _client;
         private TextView txtSpecials;
-       // private string str;
+        private string str;
+        private ListView listSpecials;
+        public PnpProducts[] products { get; set; }
 
+        public ArrayAdapter<string> ListAdapter { get; private set; }
+        public string [] items;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -26,49 +33,53 @@ namespace E_CompassApp
             try
             {
                 SetContentView(Resource.Layout.Specials);
-                //SetContentView(Resource.Layout.Specials);
-                txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
 
+                txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
+                listSpecials = FindViewById<ListView>(Resource.Id.listSpecials);
                 InitializeEcompassServiceClient();
+
+                ListSpecials();
+                ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, products.Length);
+
 
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                //Java.Lang.IllegalStateException: < Timeout exceeded getting exception details>
-                // throw;
+
             }
             
-           
-            //ListSpecials();
+         
         }
 
-        //private void ListSpecials()
-        //{
-        //    txtSpecials.Text = "Waiting for WCF...";
-        //    try
-        //    {
-        //        new Thread(async () =>
-        //        {
-        //            await BuildStr();
-        //        }).Start();
+        private void ListSpecials()
+        {
+            txtSpecials.Text = "Waiting for WCF...";
+            try
+            {
+                new Thread(async () =>
+                {
+                    await BuildStr();
+                }).Start();
 
-        //        txtSpecials.Text = "SPECIALS";
-        //        txtSpecials.Text = str;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
-        //}
+                txtSpecials.Text = "SPECIALS";
+                txtSpecials.Text = str;
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
 
-        //async Task BuildStr()
-        //{
-        //    //str = ecompassService.SayHelloTo();
-        //     str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
+        async Task BuildStr()
+        {
+            //str = ecompassService.SayHelloTo();
+            str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
+            products = await _client.GetProductsDataAsync();
 
-        //}
+        }
 
         void InitializeEcompassServiceClient()
         {
@@ -142,28 +153,68 @@ namespace E_CompassApp
     //{
     //    EcompassServiceClient client;
 
-        //List<PnpProducts> result;
-        //try
-        //{
+    //List<PnpProducts> result;
+    //try
+    //{
 
-        //    result =((List<PnpProducts>) await _client.GetProductsDataAsync());
-        //    listProduct = result;
-        //}
-        //catch (Exception ex)
-        //{
-        //    Console.WriteLine(ex.Message);
-        //}
-        //var todoItems = await Task.Factory.FromAsync<ObservableCollection<client.GetProductsData>>(
-        //    ecomass.BeginGetTodoItems,
-        //    todoService.EndGetTodoItems,
-        //    null,
-        //    TaskCreationOptions.None);
+    //    result =((List<PnpProducts>) await _client.GetProductsDataAsync());
+    //    listProduct = result;
+    //}
+    //catch (Exception ex)
+    //{
+    //    Console.WriteLine(ex.Message);
+    //}
+    //var todoItems = await Task.Factory.FromAsync<ObservableCollection<client.GetProductsData>>(
+    //    ecomass.BeginGetTodoItems,
+    //    todoService.EndGetTodoItems,
+    //    null,
+    //    TaskCreationOptions.None);
 
 
-        //foreach (var item in todoItems)
-        //{
-        //    Items.Add(FromWCFServiceTodoItem(item));
-        //}
-        //...
-   // }
+    //foreach (var item in todoItems)
+    //{
+    //    Items.Add(FromWCFServiceTodoItem(item));
+    //}
+    //...
+    // }
+
+    //            < ImageView
+    //   android: src = "@drawable/yogurt"
+    //   android: layout_width = "82.5dp"
+    //   android: layout_height = "60.5dp"
+    //   android: id = "@+id/imageView2"
+    //   android: layout_marginRight = "0.0dp"
+    //   android: layout_marginBottom = "14.0dp"
+    //   android: layout_marginTop = "0.0dp"
+    //   android: layout_marginLeft = "0.0dp" />
+
+    //< TextView
+    //   android: id = "@+id/myImageViewText"
+    //   android: layout_width = "wrap_content"
+    //   android: layout_height = "wrap_content"
+    //   android: layout_margin = "1dp"
+    //   android: gravity = "left"
+    //   android: layout_gravity = "center_vertical"
+    //   android: text = "Yogurt R29.90 2% discount"
+    //   android: textColor = "#000000" />
+
+    //< ImageView
+    //   android: src = "@drawable/fries"
+    //   android: layout_width = "74.5dp"
+    //   android: layout_height = "56.5dp"
+    //   android: id = "@+id/imageView2"
+    //   android: layout_marginRight = "0.0dp"
+    //   android: layout_marginBottom = "14.0dp"
+    //   android: layout_marginTop = "0.0dp"
+    //   android: layout_marginLeft = "0.0dp" />
+
+    //< TextView
+    //   android: id = "@+id/myImageViewText"
+    //   android: layout_margin = "1dp"
+    //   android: layout_width = "wrap_content"
+    //   android: layout_height = "wrap_content"
+    //   android: gravity = "left"
+    //   android: layout_gravity = "center_vertical"
+    //   android: text = "Fries R40.00 2% discount"
+    //   android: textColor = "#000000" />
 }
