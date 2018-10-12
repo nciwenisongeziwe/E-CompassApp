@@ -2,7 +2,7 @@
 using Android.App;
 using Android.OS;
 using System.ServiceModel;
-using EcompassServiceProxy;
+
 using System;
 using System.Collections.Generic;
 using Android.Widget;
@@ -10,6 +10,7 @@ using Android.Support.V7.App;
 using System.Threading;
 using System.Threading.Tasks;
 using static Android.Content.ClipData;
+using E_CompassApp.localhost;
 
 namespace E_CompassApp
 {
@@ -18,11 +19,14 @@ namespace E_CompassApp
     {
         private static readonly EndpointAddress Endpoint =
             new EndpointAddress("http://localhost:50874/EcompassService.svc");
-        private EcompassServiceClient _client;
+
+        private localhost.EcompassService _client = new localhost.EcompassService();
+
+        //private EcompassServiceClient _client;
         private TextView txtSpecials;
         private string str;
-        private ListView listSpecials;
-        public PnpProducts[] Products { get; set; }
+        private ListView listSpecials;  
+        private PnpProducts[] Products { get; set; }
 
         public ArrayAdapter<string> ListAdapter { get; private set; }
         public string [] items;
@@ -36,10 +40,10 @@ namespace E_CompassApp
 
                 txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
                 listSpecials = FindViewById<ListView>(Resource.Id.listSpecials);
-                InitializeEcompassServiceClient();
+                //InitializeEcompassServiceClient();
 
                 ListSpecials();
-                //ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, products.Length);
+                ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, Products.Length);
 
 
             }
@@ -57,9 +61,9 @@ namespace E_CompassApp
             txtSpecials.Text = "Waiting for WCF...";
             try
             {
-                new Thread(async () =>
+                new Thread(() =>
                 {
-                    await BuildStr();
+                    BuildStr();
                 }).Start();
 
                 txtSpecials.Text = "SPECIALS";
@@ -73,18 +77,28 @@ namespace E_CompassApp
         }
 
 
-        async Task BuildStr()
+        void BuildStr()
         {
+
             //str = ecompassService.SayHelloTo();
-            str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
-            Products = await _client.GetProductsDataAsync();
+            try
+            {
+
+                str = _client.SayHelloTo(); /// after this step it jumps out of method
+                Products = _client.GetProductsData();
+            }
+            catch (Exception ex)
+            {
+                txtSpecials.Text = ex.Message;
+                //Console.WriteLine(ex.Message);
+            }
 
         }
 
         void InitializeEcompassServiceClient()
         {
             BasicHttpBinding binding = CreateBasicHttpBinding();
-            _client = new EcompassServiceClient(binding, Endpoint);
+           //_client = new EcompassServiceClient(binding, Endpoint);
         }
 
 
@@ -131,20 +145,20 @@ namespace E_CompassApp
         //}
 
 
-        async void SayHelloWorldButtonOnClick(object sender, EventArgs e)
-        {
-            txtSpecials.Text = "Waiting for WCF...";
-            try
-            {
-                var result = await _client.SayHelloToAsync();
-                txtSpecials.Text = result;
-            }
-            catch (Exception ex)
-            {
-                txtSpecials.Text = ex.Message;
-                //Console.WriteLine(ex.Message);
-            }
-        }
+        //async void SayHelloWorldButtonOnClick(object sender, EventArgs e)
+        //{
+        //    txtSpecials.Text = "Waiting for WCF...";
+        //    try
+        //    {
+        //        var result =  _client.SayHelloTo();
+        //        txtSpecials.Text = result;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        txtSpecials.Text = ex.Message;
+        //        //Console.WriteLine(ex.Message);
+        //    }
+        //}
 
 
     }
