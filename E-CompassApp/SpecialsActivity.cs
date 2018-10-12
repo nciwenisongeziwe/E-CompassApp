@@ -29,7 +29,8 @@ namespace E_CompassApp
         private PnpProducts[] Products { get; set; }
 
         public ArrayAdapter<string> ListAdapter { get; private set; }
-        public string [] items;
+
+        private Button btnLoad;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -40,12 +41,13 @@ namespace E_CompassApp
 
                 txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
                 listSpecials = FindViewById<ListView>(Resource.Id.listSpecials);
+                btnLoad = FindViewById<Button>(Resource.Id.btnLoadDB);
                 //InitializeEcompassServiceClient();
 
                 ListSpecials();
                 ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, Products.Length);
 
-
+                btnLoad.Click += BtnLoad_Click;
             }
             catch (Exception ex)
             {
@@ -54,6 +56,11 @@ namespace E_CompassApp
             }
             
          
+        }
+
+        private void BtnLoad_Click(object sender, EventArgs e)
+        {
+            ListSpecials();
         }
 
         private void ListSpecials()

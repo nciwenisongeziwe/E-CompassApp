@@ -2633,6 +2633,9 @@ namespace E_CompassApp
 			// aapt resource value: 0x7f0a0048
 			public const int bottom = 2131361864;
 			
+			// aapt resource value: 0x7f0a00c6
+			public const int btnLoadDB = 2131361990;
+			
 			// aapt resource value: 0x7f0a00a9
 			public const int btnLocation = 2131361961;
 			
@@ -2828,8 +2831,8 @@ namespace E_CompassApp
 			// aapt resource value: 0x7f0a002a
 			public const int listMode = 2131361834;
 			
-			// aapt resource value: 0x7f0a00c6
-			public const int listSpecials = 2131361990;
+			// aapt resource value: 0x7f0a00c7
+			public const int listSpecials = 2131361991;
 			
 			// aapt resource value: 0x7f0a006b
 			public const int list_item = 2131361899;
@@ -2837,14 +2840,14 @@ namespace E_CompassApp
 			// aapt resource value: 0x7f0a00ab
 			public const int map = 2131361963;
 			
-			// aapt resource value: 0x7f0a00c9
-			public const int masked = 2131361993;
+			// aapt resource value: 0x7f0a00ca
+			public const int masked = 2131361994;
 			
 			// aapt resource value: 0x7f0a00b9
 			public const int media_actions = 2131361977;
 			
-			// aapt resource value: 0x7f0a00c7
-			public const int message = 2131361991;
+			// aapt resource value: 0x7f0a00c8
+			public const int message = 2131361992;
 			
 			// aapt resource value: 0x7f0a003c
 			public const int middle = 2131361852;
@@ -3116,8 +3119,8 @@ namespace E_CompassApp
 			// aapt resource value: 0x7f0a0016
 			public const int view_offset_helper = 2131361814;
 			
-			// aapt resource value: 0x7f0a00c8
-			public const int visible = 2131361992;
+			// aapt resource value: 0x7f0a00c9
+			public const int visible = 2131361993;
 			
 			// aapt resource value: 0x7f0a0026
 			public const int wide = 2131361830;
