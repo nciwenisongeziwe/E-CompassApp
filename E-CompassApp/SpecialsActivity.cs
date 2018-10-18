@@ -10,20 +10,24 @@ using Android.Support.V7.App;
 using System.Threading;
 using System.Threading.Tasks;
 using static Android.Content.ClipData;
-using E_CompassApp.localhost;
+//using E_CompassApp.localhost;
+using EcompassServiceProxy;
+//using ServiceDirect;
 
 namespace E_CompassApp
 {
     [Activity(Label = "SpecialsActivity")]
     public class SpecialsActivity : Activity// Activity Android.Support.V7.App.AppCompatActivity
     {
-        private static readonly EndpointAddress Endpoint =
-            new EndpointAddress("http://localhost:50874/EcompassService.svc");
+        private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
+        public EcompassServiceClient _client { get; set; }
+        //private localhost.EcompassService _client;
+        //public EcompassContext _client { get; set; }
 
-        private localhost.EcompassService _client;
-                
+
         private TextView txtSpecials;
         private string str;
+
         private ListView listSpecials;  
         private PnpProducts[] Products { get; set; }
 
@@ -40,8 +44,9 @@ namespace E_CompassApp
 
                 txtSpecials = FindViewById<TextView>(Resource.Id.txtSpecials);
                 listSpecials = FindViewById<ListView>(Resource.Id.listSpecials);
+
                 btnLoad = FindViewById<Button>(Resource.Id.btnLoadDB);
-                //InitializeEcompassServiceClient();
+                InitializeEcompassServiceClient();
 
                 ListSpecials();
               // ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, Products.Length);
@@ -51,7 +56,6 @@ namespace E_CompassApp
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-
             }
             
          
@@ -84,15 +88,14 @@ namespace E_CompassApp
         }
 
 
-        void BuildStr()
+        async void BuildStr()
         {
-            _client = new localhost.EcompassService();
+          //  _client = new localhost.EcompassService();
             //str = ecompassService.SayHelloTo();
             try
             {
-
-                str = _client.SayHelloTo(); /// after this step it jumps out of method
-                Products = _client.GetProductsData();
+                str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
+                //Products = await _client.Products.;
             }
             catch (Exception ex)
             {
@@ -102,28 +105,28 @@ namespace E_CompassApp
 
         }
 
-        //void InitializeEcompassServiceClient()
-        //{
-        //    BasicHttpBinding binding = CreateBasicHttpBinding();
-        //   //_client = new EcompassServiceClient(binding, Endpoint);
-        //}
+        void InitializeEcompassServiceClient()
+        {
+            BasicHttpBinding binding = CreateBasicHttpBinding();
+            _client = new EcompassServiceClient(binding, Endpoint);
+        }
 
 
-        //static BasicHttpBinding CreateBasicHttpBinding()
-        //{
-        //    BasicHttpBinding binding = new BasicHttpBinding
-        //    {
-        //        Name = "basicHttpBinding",
-        //        MaxBufferSize = 2147483647,
-        //        MaxReceivedMessageSize = 2147483647
-        //    };
+        static BasicHttpBinding CreateBasicHttpBinding()
+        {
+            BasicHttpBinding binding = new BasicHttpBinding
+            {
+                Name = "basicHttpBinding",
+                MaxBufferSize = 2147483647,
+                MaxReceivedMessageSize = 2147483647
+            };
 
-        //    TimeSpan timeout = new TimeSpan(0, 0, 30);
-        //    binding.SendTimeout = timeout;
-        //    binding.OpenTimeout = timeout;
-        //    binding.ReceiveTimeout = timeout;
-        //    return binding;
-        //}
+            TimeSpan timeout = new TimeSpan(0, 0, 30);
+            binding.SendTimeout = timeout;
+            binding.OpenTimeout = timeout;
+            binding.ReceiveTimeout = timeout;
+            return binding;
+        }
 
 
 

@@ -9,10 +9,9 @@
 
 namespace EcompassServiceProxy
 {
-    using System;
     using System.Runtime.Serialization;
-    using System.Threading.Tasks;
-
+    
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PnpProducts", Namespace="http://schemas.datacontract.org/2004/07/EcompassService")]
@@ -292,7 +291,7 @@ namespace EcompassServiceProxy
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IEcompassService))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:50874/EcompassService.svc");
+                return new System.ServiceModel.EndpointAddress("http://localhost:50874/EcompassService.svc/EcompassService");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
@@ -306,12 +305,7 @@ namespace EcompassServiceProxy
         {
             return EcompassServiceClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IEcompassService);
         }
-
-        public Task SayHelloToAsync(string v)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public enum EndpointConfiguration
         {
             
