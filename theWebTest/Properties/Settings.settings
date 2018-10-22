@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="theWebTest.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="theWebTest_localhost_EcompassService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:50874/EcompassService.svc/EcompassService</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

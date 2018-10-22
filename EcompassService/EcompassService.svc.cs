@@ -9,23 +9,19 @@ namespace EcompassService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EcompassService" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select EcompassService.svc or EcompassService.svc.cs at the Solution Explorer and start debugging.
-    [ServiceContract]
+    //[DataContract]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class EcompassService : IEcompassService
     {
-        [OperationContract]
-        public void DoWork()
-
-        {
-        }
         private EcompassContext ecompassContext = new EcompassContext();
 
-        [OperationContract]
+        //[OperationContract]
         public List<PnpProducts> GetProductsData()
         {
             return ecompassContext.Products.ToList();
         }
 
-        [OperationContract]
+        //[OperationContract]
         public string SayHelloTo()
         {
             return "Hello World to you, Ecompass";

@@ -10,9 +10,8 @@ using Android.Support.V7.App;
 using System.Threading;
 using System.Threading.Tasks;
 using static Android.Content.ClipData;
-//using E_CompassApp.localhost;
 using EcompassServiceProxy;
-//using ServiceDirect;
+
 
 namespace E_CompassApp
 {
@@ -27,10 +26,8 @@ namespace E_CompassApp
 
         private TextView txtSpecials;
         private string str;
-
         private ListView listSpecials;  
         private PnpProducts[] Products { get; set; }
-
         public ArrayAdapter<string> ListAdapter { get; private set; }
         private Button btnLoad;
 
@@ -46,10 +43,9 @@ namespace E_CompassApp
                 listSpecials = FindViewById<ListView>(Resource.Id.listSpecials);
 
                 btnLoad = FindViewById<Button>(Resource.Id.btnLoadDB);
-                InitializeEcompassServiceClient();
-
-                ListSpecials();
-              // ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, Products.Length);
+                //InitializeEcompassServiceClient();
+                //ListSpecials();
+                //ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, Products.Length);
 
                 btnLoad.Click += BtnLoad_Click;
             }
@@ -87,21 +83,23 @@ namespace E_CompassApp
             }
         }
 
-
-        async void BuildStr()
+        private async void BuildStr()
         {
-          //  _client = new localhost.EcompassService();
+            //_client = new localhost.EcompassService();
             //str = ecompassService.SayHelloTo();
-            try
-            {
-                str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
-                //Products = await _client.Products.;
-            }
-            catch (Exception ex)
-            {
-                txtSpecials.Text = ex.Message;
-                //Console.WriteLine(ex.Message);
-            }
+
+            //InitializeEcompassServiceClient();
+                try
+                {
+                    //str = _client.SayHelloTo();
+                    str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
+                    //Products = await _client.Products.;
+                }
+                catch (Exception ex)
+                {
+                    txtSpecials.Text = ex.Message;
+                    //Console.WriteLine(ex.Message);
+                }
 
         }
 
@@ -127,49 +125,6 @@ namespace E_CompassApp
             binding.ReceiveTimeout = timeout;
             return binding;
         }
-
-
-
-
-
-        //async void GetHelloWorldDataButtonOnClick(object sender, EventArgs e)
-        //{
-        //    var data = new List<PnpProducts>
-        //    {
-        //        //Name = "Mr. Chad",
-        //        //SayHello = true
-        //    };
-
-        //    //_getHelloWorldDataTextView.Text = "Waiting for WCF...";
-        //    IObservable<PnpProducts> result;
-        //    try
-        //    {
-
-        //        //listProducts. = await _client.GetProductsDataAsync();
-        //        //listProducts = result;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
-        //}
-
-
-        //async void SayHelloWorldButtonOnClick(object sender, EventArgs e)
-        //{
-        //    txtSpecials.Text = "Waiting for WCF...";
-        //    try
-        //    {
-        //        var result =  _client.SayHelloTo();
-        //        txtSpecials.Text = result;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        txtSpecials.Text = ex.Message;
-        //        //Console.WriteLine(ex.Message);
-        //    }
-        //}
-
 
     }
 
