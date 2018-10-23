@@ -39,7 +39,7 @@ namespace E_CompassApp
         }
 
         private void BtnLogin_Click(object sender,System. EventArgs e)
-        {
+            {
             if (txtUsername.Text == "software" && txtPassword.Text == "dev")
             {
                 StartActivity(typeof(HomeActivity));
@@ -52,6 +52,15 @@ namespace E_CompassApp
 
             var valuesForActivity = new Bundle();
             valuesForActivity.PutInt(COUNT_KEY, count);
+
+            // Set up an intent so that tapping the notifications returns to this app:
+            Intent intent = new Intent(this, typeof(MainActivity));
+
+            // Create a PendingIntent; we're only using one PendingIntent (ID = 0):
+            const int pendingIntentId = 0;
+            PendingIntent pendingIntent =
+                PendingIntent.GetActivity(this, pendingIntentId, intent, PendingIntentFlags.OneShot);
+
 
             // When the user clicks the notification, SecondActivity will start up.
             var resultIntent = new Intent(this, typeof(LocationActivity));
@@ -76,6 +85,7 @@ namespace E_CompassApp
                           .SetSmallIcon(Resource.Drawable.ic_stat_button_click) // This is the icon to display
                           .SetContentText($"The nearest store is {count} Kilometers away."); // the message to display.
 
+            builder.SetWhen(Java.Lang.JavaSystem.CurrentTimeMillis());
             // Finally, publish the notification:
             var notificationManager = NotificationManagerCompat.From(this);
             notificationManager.Notify(NOTIFICATION_ID, builder.Build());

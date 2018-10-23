@@ -14,17 +14,36 @@ using Android.Support.V4.Content;
 using Android.Views;
 using Android.Widget;
 
+using Android.Gms.Common;
+using Android.Gms.Location;
+using System.Threading.Tasks;
+using Android.Support.V7.App;
+using Android.Util;
+
 namespace E_CompassApp
 {
     [Activity(Label = "LocationActivity")]
-    public class LocationActivity : Activity, IOnMapReadyCallback
+    public class LocationActivity : AppCompatActivity, IOnMapReadyCallback
     {
+       
+
+
         //private bool isRequestingLocationUpdates;
-      //  private TextView txtMessage;
+        //  private TextView txtMessage;
+
+        // FusedLocationProviderClient fusedLocationProviderClient;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+          
+
+            //   fusedLocationProviderClient = LocationServices.GetFusedLocationProviderClient(this);
+
+
+            //LocationManager locationManager = (LocationManager)GetSystemService(Context.LocationService);
+
             try
             {
                 LocationManager locationManager = (LocationManager)GetSystemService(Context.LocationService);
@@ -53,6 +72,33 @@ namespace E_CompassApp
 
             
         }
+
+
+        bool IsGooglePlayServicesInstalled()
+        {
+            var queryResult = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+            if (queryResult == ConnectionResult.Success)
+            {
+                Log.Info("MainActivity", "Google Play Services is installed on this device.");
+                return true;
+            }
+
+            if (GoogleApiAvailability.Instance.IsUserResolvableError(queryResult))
+            {
+                // Check if there is a way the user can resolve the issue
+                var errorString = GoogleApiAvailability.Instance.GetErrorString(queryResult);
+                Log.Error("MainActivity", "There is a problem with Google Play Services on this device: {0} - {1}",
+                          queryResult, errorString);
+
+                // Alternately, display the error to the user.
+            }
+
+            return false;
+        }
+
+
+
+       
 
 
         public void OnMapReady(GoogleMap googleMap)

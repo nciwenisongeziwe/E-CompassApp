@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//using EcompassServiceProxy;
-//using localhost
+using EcompassServiceProxy;
+
 
 namespace theWebTest
 {
     public partial class Home : System.Web.UI.Page
     {
-        //private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
-        //public EcompassServiceClient _client { get; set; }
-        private localhost.EcompassService _client;
-
-
+        private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
+        public EcompassServiceClient _client { get; set; }
+        //private localhost.EcompassService _client;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //InitializeEcompassServiceClient();
+            InitializeEcompassServiceClient();
 
         }
 
@@ -32,12 +30,12 @@ namespace theWebTest
 
         private async Task CheckConnectionAsync()
         {
-            _client = new localhost.EcompassService();
+            //_client = new localhost.EcompassService();
             try
             {
                 //str = _client.SayHelloTo();
-                lblText.Text = _client.SayHelloTo();
-                //await CheckDBConnTask(); /// after this step it jumps out of method
+                //lblText.Text = _client.SayHelloTo();
+                lblText.Text = await CheckDBConnTask(); /// after this step it jumps out of method
 
             }
             catch (Exception ex)
@@ -47,15 +45,15 @@ namespace theWebTest
             }
         }
 
-        //private Task<string> CheckDBConnTask()
-        //{
-        //    //return _client.SayHelloToAsync();
-        //}
+        private Task<string> CheckDBConnTask()
+        {
+            return _client.SayHelloToAsync();
+        }
 
         void InitializeEcompassServiceClient()
         {
             BasicHttpBinding binding = CreateBasicHttpBinding();
-            ////_client = new EcompassServiceClient(binding, Endpoint);
+            _client = new EcompassServiceClient(binding, Endpoint);
         }
 
 
