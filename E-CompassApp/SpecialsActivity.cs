@@ -4,12 +4,8 @@ using Android.OS;
 using System.ServiceModel;
 
 using System;
-using System.Collections.Generic;
 using Android.Widget;
-using Android.Support.V7.App;
 using System.Threading;
-using System.Threading.Tasks;
-using static Android.Content.ClipData;
 using EcompassServiceProxy;
 
 
@@ -88,7 +84,7 @@ namespace E_CompassApp
             //_client = new localhost.EcompassService();
             //str = ecompassService.SayHelloTo();
 
-            //InitializeEcompassServiceClient();
+            InitializeEcompassServiceClient();
                 try
                 {
                     //str = _client.SayHelloTo();

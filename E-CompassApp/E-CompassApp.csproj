@@ -128,11 +128,6 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecialsActivity.cs" />
-    <Compile Include="Web References\localhost\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -153,23 +148,6 @@
     <AndroidResource Include="Resources\layout\Location.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <None Include="Web References\localhost\EcompassService.wsdl" />
-    <None Include="Web References\localhost\EcompassService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web References\localhost\EcompassService0.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web References\localhost\EcompassService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web References\localhost\PnpProducts.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\localhost\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -218,24 +196,6 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:50874/EcompassService.svc">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>http://localhost:50874/EcompassService.svc</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>
-      </CachedAppSettingsObjectName>
-      <CachedSettingsPropName>
-      </CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\localhost\EcompassService.disco" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ServiceProxy\ServiceProxy.csproj">
