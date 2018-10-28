@@ -42,7 +42,13 @@ namespace E_CompassApp
 
         private void BtnLocation_Click(object sender, System.EventArgs e)
         {
-            StartActivity(typeof(LocationActivity));
+
+            var geoUri = Android.Net.Uri.Parse("geo:-33.986843,25.6660153");
+            var mapIntent = new Intent(Intent.ActionView, geoUri);
+            StartActivity(mapIntent);
+
+
+            //StartActivity(typeof(LocationActivity));
 
             //try
             //{
