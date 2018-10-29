@@ -7,7 +7,7 @@ using System;
 using Android.Widget;
 using System.Threading;
 using EcompassServiceProxy;
-
+using Android.Content;
 
 namespace E_CompassApp
 {
@@ -55,8 +55,23 @@ namespace E_CompassApp
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var geoUri = Android.Net.Uri.Parse("geo:-33.986843,25.6660153");
+                var mapIntent = new Intent(Intent.ActionView, geoUri);
+                StartActivity(mapIntent);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             //ListSpecials();
-            BuildStr();
+            //BuildStr();
+        }
+
+        private void BtnSpecials_Click(object sender, System.EventArgs e)
+        {
+            StartActivity(typeof(SpecialsActivity));
         }
 
         private void ListSpecials()
