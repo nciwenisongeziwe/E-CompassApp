@@ -23,9 +23,9 @@ namespace theWebTest
 
         }
 
-        protected void btnLoadDB_Click(object sender, EventArgs e)
+        protected void BtnLoadDB_Click(object sender, EventArgs e)
         {
-            CheckConnectionAsync();
+            //CheckConnectionAsync();
         }
 
         private async Task CheckConnectionAsync()

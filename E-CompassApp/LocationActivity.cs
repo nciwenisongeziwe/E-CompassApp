@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.App;
 using Android.Gms.Maps;
+using Android.Gms.Maps.Model;
 using Android.OS;
 using Android.Support.V7.App;
 
@@ -23,11 +24,11 @@ namespace E_CompassApp
                 var mapFragment = (MapFragment)FragmentManager.FindFragmentById(Resource.Id.map);
                 mapFragment.GetMapAsync(this);
 
+                mapFragment = MapFragment.NewInstance();
+                mapFragment.FragmentManager.BeginTransaction()
+                                                .Add(Resource.Id.map, mapFragment, "map_fragment")
+                                                .Commit();
 
-                //var mapFrag = MapFragment.NewInstance();
-                //activity.FragmentManager.BeginTransaction()
-                //                        .Add(Resource.Id.map_container, mapFrag, "map_fragment")
-                //                        .Commit();
             }
             catch (Exception ex)
             {
@@ -46,6 +47,18 @@ namespace E_CompassApp
             googleMap.MapType = GoogleMap.MapTypeNormal;
             googleMap.UiSettings.ZoomControlsEnabled = true;
             googleMap.UiSettings.CompassEnabled = true;
+
+            //
+            MarkerOptions markerOpt1 = new MarkerOptions();
+            markerOpt1.SetPosition(new LatLng(-33.986843, 25.6660153));
+            markerOpt1.SetTitle("Pick n Pay Summerstrand");
+
+            var bmDescriptor = BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan);
+#pragma warning disable CS0618 // Type or member is obsolete
+            markerOpt1.InvokeIcon(bmDescriptor);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            googleMap.AddMarker(markerOpt1);
         }
 
 

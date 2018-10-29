@@ -190,11 +190,6 @@
     <AndroidResource Include="Resources\drawable\ic_stat_button_click.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\FakeSpecials.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
