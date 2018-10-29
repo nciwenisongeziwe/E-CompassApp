@@ -13,8 +13,8 @@ namespace E_CompassApp
     public class LocationActivity : AppCompatActivity, IOnMapReadyCallback
     {
         protected override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
+        {   
+            base.OnCreate(savedInstanceState); 
 
             try
             {
