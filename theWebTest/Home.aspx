@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="lblText" runat="server" Text=""></asp:Label>
-            <asp:Button ID="btnLoadDB" runat="server" Text="Load DB" OnClick="btnLoadDB_Click" />
+            <asp:Button ID="btnLoadDB" runat="server" Text="Load DB" OnClick="BtnLoadDB_Click" />
         </div>
     </form>
 </body>

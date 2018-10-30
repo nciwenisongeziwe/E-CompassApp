@@ -3386,11 +3386,11 @@ namespace E_CompassApp
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f07003a
-			public const int ApplicationName = 2131165242;
+			// aapt resource value: 0x7f070048
+			public const int ApplicationName = 2131165256;
 			
-			// aapt resource value: 0x7f070039
-			public const int Hello = 2131165241;
+			// aapt resource value: 0x7f070047
+			public const int Hello = 2131165255;
 			
 			// aapt resource value: 0x7f070011
 			public const int abc_action_bar_home_description = 2131165201;
@@ -3488,11 +3488,11 @@ namespace E_CompassApp
 			// aapt resource value: 0x7f070030
 			public const int bottom_sheet_behavior = 2131165232;
 			
-			// aapt resource value: 0x7f07003c
-			public const int channel_description = 2131165244;
+			// aapt resource value: 0x7f07004a
+			public const int channel_description = 2131165258;
 			
-			// aapt resource value: 0x7f07003b
-			public const int channel_name = 2131165243;
+			// aapt resource value: 0x7f070049
+			public const int channel_name = 2131165257;
 			
 			// aapt resource value: 0x7f070031
 			public const int character_counter_pattern = 2131165233;
@@ -3547,6 +3547,48 @@ namespace E_CompassApp
 			
 			// aapt resource value: 0x7f070010
 			public const int common_signin_button_text_long = 2131165200;
+			
+			// aapt resource value: 0x7f070039
+			public const int deviceLocationUtil_default_rationale_request_messageBody = 2131165241;
+			
+			// aapt resource value: 0x7f07003a
+			public const int deviceLocationUtil_default_rationale_request_title = 2131165242;
+			
+			// aapt resource value: 0x7f07003b
+			public const int deviceLocationUtil_geocoder_address_not_found = 2131165243;
+			
+			// aapt resource value: 0x7f07003c
+			public const int deviceLocationUtil_geocoder_invalid_element = 2131165244;
+			
+			// aapt resource value: 0x7f07003d
+			public const int deviceLocationUtil_geocoder_invalid_latLong = 2131165245;
+			
+			// aapt resource value: 0x7f07003e
+			public const int deviceLocationUtil_geocoder_not_available = 2131165246;
+			
+			// aapt resource value: 0x7f07003f
+			public const int deviceLocationUtil_location_provided_by_lastLocation = 2131165247;
+			
+			// aapt resource value: 0x7f070040
+			public const int deviceLocationUtil_location_provided_by_locationUpdates = 2131165248;
+			
+			// aapt resource value: 0x7f070041
+			public const int deviceLocationUtil_location_settings_not_satisfied = 2131165249;
+			
+			// aapt resource value: 0x7f070042
+			public const int deviceLocationUtil_location_settings_satisfied = 2131165250;
+			
+			// aapt resource value: 0x7f070043
+			public const int deviceLocationUtil_location_updates_removed = 2131165251;
+			
+			// aapt resource value: 0x7f070044
+			public const int deviceLocationUtil_location_updates_resumed = 2131165252;
+			
+			// aapt resource value: 0x7f070045
+			public const int deviceLocationUtil_request_returned_null = 2131165253;
+			
+			// aapt resource value: 0x7f070046
+			public const int deviceLocationUtil_requests_currently_active = 2131165254;
 			
 			// aapt resource value: 0x7f070032
 			public const int password_toggle_content_description = 2131165234;

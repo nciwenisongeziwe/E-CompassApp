@@ -23,8 +23,7 @@ namespace E_CompassApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-
+            
             // Create your application here
             SetContentView(Resource.Layout.Home);
 
@@ -77,7 +76,7 @@ namespace E_CompassApp
 
         private void BtnSpecials_Click(object sender, System.EventArgs e)
         {
-            ButtonOnClick(sender, e);
+           // ButtonOnClick(sender, e);
             StartActivity(typeof(SpecialsActivity));
         }
 

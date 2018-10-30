@@ -2,19 +2,31 @@
 using Android.App;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using Android.Gms.Tasks;
 using Android.OS;
 using Android.Support.V7.App;
+using Android.Util;
 
-
+using Android.Gms.Common;
+using Android.Gms.Location;
 
 namespace E_CompassApp
 {
     [Activity(Label = "LocationActivity")]
     public class LocationActivity : AppCompatActivity, IOnMapReadyCallback
     {
+        FusedLocationProviderClient fusedLocationProviderClient;
+        public double latView { get; set; }
+        public double longView { get; set; }
+
+
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {   
-            base.OnCreate(savedInstanceState); 
+            base.OnCreate(savedInstanceState);
+
+            fusedLocationProviderClient = LocationServices.GetFusedLocationProviderClient(this);
 
             try
             {
@@ -41,16 +53,37 @@ namespace E_CompassApp
             
         }
 
+        private async void GetLastLocationFromDevice()
+        {
+            // This method assumes that the necessary run-time permission checks have succeeded.
+            //getLastLocationButton.SetText(Resource.String.getting_last_location);
+            Android.Locations.Location location = await fusedLocationProviderClient.GetLastLocationAsync();
+
+            if (location == null)
+            {
+                // Seldom happens, but should code that handles this scenario
+            }
+            else
+            {
+                // Do something with the location 
+                //Log.Debug("Sample", "The latitude is " + location.Latitude);
+                latView = location.Latitude;
+                longView = location.Longitude;
+            }
+        }
+
+
         public void OnMapReady(GoogleMap googleMap)
         {
-            //throw new NotImplementedException();
+            GetLastLocationFromDevice();
+
             googleMap.MapType = GoogleMap.MapTypeNormal;
             googleMap.UiSettings.ZoomControlsEnabled = true;
             googleMap.UiSettings.CompassEnabled = true;
 
             //
             MarkerOptions markerOpt1 = new MarkerOptions();
-            markerOpt1.SetPosition(new LatLng(-33.986843, 25.6660153));
+            markerOpt1.SetPosition(new LatLng(latView, longView));//-33.986843 25.6660153
             markerOpt1.SetTitle("Pick n Pay Summerstrand");
 
             var bmDescriptor = BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan);
