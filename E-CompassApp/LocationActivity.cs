@@ -16,14 +16,17 @@ namespace E_CompassApp
     public class LocationActivity : AppCompatActivity, IOnMapReadyCallback
     {
         FusedLocationProviderClient fusedLocationProviderClient;
-        public double latView { get; set; }
-        public double longView { get; set; }
+        private double _latView;
+        private double _longView;
+
+        public double LatView { get => _latView; set => _latView = value; }
+        public double LongView { get => _longView; set => _longView = value; }
 
 
 
 
         protected override void OnCreate(Bundle savedInstanceState)
-        {   
+        {
             base.OnCreate(savedInstanceState);
 
             fusedLocationProviderClient = LocationServices.GetFusedLocationProviderClient(this);
@@ -48,9 +51,9 @@ namespace E_CompassApp
                 //txtMessage=FindViewById<TextView>(Resource.Id.txtMessage);
                 //txtMessage.Text= ex.Message;
             }
-           
 
-            
+
+
         }
 
         private async void GetLastLocationFromDevice()
@@ -67,8 +70,8 @@ namespace E_CompassApp
             {
                 // Do something with the location 
                 //Log.Debug("Sample", "The latitude is " + location.Latitude);
-                latView = location.Latitude;
-                longView = location.Longitude;
+                LatView = location.Latitude;
+                LongView = location.Longitude;
             }
         }
 
@@ -83,7 +86,7 @@ namespace E_CompassApp
 
             //
             MarkerOptions markerOpt1 = new MarkerOptions();
-            markerOpt1.SetPosition(new LatLng(latView, longView));//-33.986843 25.6660153
+            markerOpt1.SetPosition(new LatLng(LatView, LongView));//-33.986843 25.6660153
             markerOpt1.SetTitle("Pick n Pay Summerstrand");
 
             var bmDescriptor = BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan);
