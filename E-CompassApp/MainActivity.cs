@@ -63,7 +63,7 @@ namespace E_CompassApp
 
 
             // When the user clicks the notification, SecondActivity will start up.
-            var resultIntent = new Intent(this, typeof(LocationActivity));
+            var resultIntent = new Intent(this, typeof(SpecialsActivity));
 
             // Pass some values to SecondActivity:
             resultIntent.PutExtras(valuesForActivity);
