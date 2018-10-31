@@ -83,16 +83,17 @@ namespace E_CompassApp
 
         private void BtnLocation_Click(object sender, System.EventArgs e)
         {
-            try
-            {
-                var geoUri = Android.Net.Uri.Parse("geo:-33.986843,25.6660153");
-                var mapIntent = new Intent(Intent.ActionView, geoUri);
-                StartActivity(mapIntent);
-            }
-            catch (System.Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            StartActivity(typeof(LocationActivity));
+            //try
+            //{
+            //    var geoUri = Android.Net.Uri.Parse("geo:-33.986843,25.6660153");
+            //    var mapIntent = new Intent(Intent.ActionView, geoUri);
+            //    StartActivity(mapIntent);
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
 
         }
 
