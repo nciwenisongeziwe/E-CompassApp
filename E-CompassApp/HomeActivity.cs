@@ -27,7 +27,7 @@ namespace E_CompassApp
             // Create your application here
             SetContentView(Resource.Layout.Home);
 
-            CreateNotificationChannel();
+            //CreateNotificationChannel();
 
             btnSpecials = FindViewById<Button>(Resource.Id.btnSpecials);
             btnLocation = FindViewById<Button>(Resource.Id.btnLocation);

@@ -70,7 +70,7 @@ namespace E_CompassApp
 
             // Construct a back stack for cross-task navigation:
             var stackBuilder = TaskStackBuilder.Create(this);
-            stackBuilder.AddParentStack((Java.Lang.Class.FromType(typeof(LocationActivity))));
+            stackBuilder.AddParentStack((Java.Lang.Class.FromType(typeof(SpecialsActivity))));
             stackBuilder.AddNextIntent(resultIntent);
 
             // Create the PendingIntent with the back stack:
