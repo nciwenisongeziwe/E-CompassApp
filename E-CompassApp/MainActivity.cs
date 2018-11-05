@@ -18,6 +18,8 @@ namespace E_CompassApp
         private int count;
         static readonly int NOTIFICATION_ID = 1000;
         static readonly string CHANNEL_ID = "location_notification";
+
+
         internal static readonly string COUNT_KEY = "count";
 
         public object ToastLenght { get; private set; }

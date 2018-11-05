@@ -8,15 +8,17 @@ using Android.Widget;
 using System.Threading;
 using EcompassServiceProxy;
 using Android.Content;
+using E_CompassApp.localhost;
+using PnpProducts = E_CompassApp.localhost.PnpProducts;
 
 namespace E_CompassApp
 {
     [Activity(Label = "SpecialsActivity")]
     public class SpecialsActivity : Activity// Activity Android.Support.V7.App.AppCompatActivity
     {
-        private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
-        public EcompassServiceClient _client { get; set; }
-        //private localhost.EcompassService _client;
+        //private static readonly EndpointAddress Endpoint = new EndpointAddress("http://localhost:50874/EcompassService.svc");
+        //public EcompassServiceClient _client { get; set; }
+        private localhost.EcompassService _client;
         //public EcompassContext _client { get; set; }
 
 
@@ -25,6 +27,8 @@ namespace E_CompassApp
         private ListView listSpecials;  
         private PnpProducts[] Products { get; set; }
         public ArrayAdapter<string> ListAdapter { get; private set; }
+        public EcompassService Client { get => _client; set => _client = value; }
+
         private Button btnLoad;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -55,16 +59,18 @@ namespace E_CompassApp
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var geoUri = Android.Net.Uri.Parse("geo:-33.986843,25.6660153");
-                var mapIntent = new Intent(Intent.ActionView, geoUri);
-                StartActivity(mapIntent);
-            }
-            catch (System.Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            BuildStr();
+
+            //try
+            //{
+            //    var geoUri = Android.Net.Uri.Parse("geo:-33.986843,25.6660153");
+            //    var mapIntent = new Intent(Intent.ActionView, geoUri);
+            //    StartActivity(mapIntent);
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
             //ListSpecials();
             //BuildStr();
         }
@@ -72,6 +78,7 @@ namespace E_CompassApp
         private void BtnSpecials_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(SpecialsActivity));
+
         }
 
         private void ListSpecials()
@@ -84,41 +91,43 @@ namespace E_CompassApp
                     BuildStr();
                 }).Start();
 
-                txtSpecials.Text = "SPECIALS";
+                //txtSpecials.Text = "SPECIALS";
+                    
                 txtSpecials.Text = str;
                 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.Message);
+                txtSpecials.Text = ex.Message;
             }
         }
 
-        private async void BuildStr()
+        private void BuildStr()
         {
-            //_client = new localhost.EcompassService();
+            Client = new localhost.EcompassService();
             //str = ecompassService.SayHelloTo();
 
-            InitializeEcompassServiceClient();
-                try
-                {
-                    //str = _client.SayHelloTo();
-                    str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
-                    //Products = await _client.Products.;
-                }
-                catch (Exception ex)
-                {
-                    txtSpecials.Text = ex.Message;
-                    //Console.WriteLine(ex.Message);
-                }
+            //InitializeEcompassServiceClient();
+            try
+            {
+                str = Client.SayHelloTo();
+                //str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
+                //Products = await _client.Products.;
+            }
+            catch (Exception ex)
+            {
+                txtSpecials.Text = ex.Message;
+                //Console.WriteLine(ex.Message);
+            }
 
         }
 
-        void InitializeEcompassServiceClient()
-        {
-            BasicHttpBinding binding = CreateBasicHttpBinding();
-            _client = new EcompassServiceClient(binding, Endpoint);
-        }
+        //void InitializeEcompassServiceClient()
+        //{
+        //    BasicHttpBinding binding = CreateBasicHttpBinding();
+        //    _client = new EcompassServiceClient(binding, Endpoint);
+        //}
 
 
         static BasicHttpBinding CreateBasicHttpBinding()

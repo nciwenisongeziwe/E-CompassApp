@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EcompassService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EcompassService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfPnpProducts">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PnpProducts" nillable="true" type="tns:PnpProducts" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPnpProducts" nillable="true" type="tns:ArrayOfPnpProducts" />
+  <xs:complexType name="PnpProducts">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Catagory" nillable="true" type="tns:ProductCatagory" />
+      <xs:element minOccurs="0" name="ProductDateEndPromo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProductDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductDropPercent" type="xs:double" />
+      <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductImage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductPrice" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PnpProducts" nillable="true" type="tns:PnpProducts" />
+  <xs:complexType name="ProductCatagory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CatagoryDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CatagoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="catagoryID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductCatagory" nillable="true" type="tns:ProductCatagory" />
+</xs:schema>
