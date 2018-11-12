@@ -4,7 +4,7 @@ namespace testwcf
 {
     public partial class home : System.Web.UI.Page
     {
-  //      private localhost.EcompassService _client;
+        private localhost.EcompassService _client;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,13 +18,13 @@ namespace testwcf
 
         private void BuildStr()
         {
-//            _client = new localhost.EcompassService();
+             _client = new localhost.EcompassService();
             //str = ecompassService.SayHelloTo();
 
             //InitializeEcompassServiceClient();
             try
             {
-               // lblMessage.Text = _client.SayHelloToAsync();
+               lblMessage.Text = _client.SayHelloTo();
                 //str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
                 //Products = await _client.Products.;
             }

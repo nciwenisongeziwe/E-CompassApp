@@ -111,7 +111,7 @@ namespace E_CompassApp
             //InitializeEcompassServiceClient();
             try
             {
-                str = Client.SayHelloTo();
+                txtSpecials.Text = Client.SayHelloTo();
                 //str = await _client.SayHelloToAsync(); /// after this step it jumps out of method
                 //Products = await _client.Products.;
             }
